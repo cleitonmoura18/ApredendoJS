@@ -6,11 +6,11 @@ class NegociacaoController{
     }
     adiciona(event){
         event.preventDefault();
-        let helper = new DateHelper();
-        let data = helper.textoParaData(this.inputData.value);
+      
+        let data = DateHelper.textoParaData(this.inputData.value);
         console.log(data);
         let negociacao = new Negociacao(data,this.inputQuantidade.value,this.inputValor.value);
-        let diaDoMes = helper.dataParaTexto(data);
+        let diaDoMes = DateHelper.dataParaTexto(data);
         console.log(diaDoMes);
     }
 }
