@@ -4,12 +4,19 @@ class NegociacaoController {
     this.inputData = document.querySelector("#data");
     this.inputValor = document.querySelector("#valor");
     this._listaNegociacao = new ListaDeNegociacao();
-  }
+    this._negociacaoView = new NegociacaoView(document.querySelector("#tabelaNegociacao"));
+    this._mensagem = new Mensagem();
+    this._mensagemView = new MensagemView( document.querySelector('#mensagemView'));
+    this._mensagemView.update(this._mensagem);
+  }I
   adiciona(event) {
     event.preventDefault();
 
     this._criarNegociacao();
     console.log(this._listaNegociacao.negociacoes);
+    this._negociacaoView.update(this._listaNegociacao);
+    this._mensagem.texto = 'Negociação adicionada com sucesso';
+    this._mensagemView.update(this._mensagem);
     this._limparFormulario();
   }
 
